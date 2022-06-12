@@ -55,6 +55,7 @@ function cardsMarkup() {
     cards.push(card);
   }
 
+  refs.input.value = '';
   refs.cardsList.innerHTML = '';
   refs.cardsList.insertAdjacentHTML('beforeend', cards.join(''));
 }
