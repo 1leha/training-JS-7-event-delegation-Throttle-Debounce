@@ -3,18 +3,6 @@ const titleList = document.querySelector('.title-list');
 let activeTitle;
 makeLinkMarkup();
 
-// console.log(...allTitles);
-
-// document.addEventListener(
-//   'scroll',
-//   _.throttle(() => {
-//     [...allTitles].forEach(title => {
-//       console.log(title.getBoundingClientRect().top <= 0);
-//     });
-//     // console.dir(document.querySelector('[data-id="title2"]').getBoundingClientRect().top);
-//   }, 300),
-// );
-
 document.addEventListener(
   'scroll',
   _.debounce(() => {
