@@ -177,8 +177,18 @@ h6 {
 .wrapper4 {
   display: flex;
   justify-content: center;
+  background-color: rgb(0, 94, 70);
+  height: 50px;
+  border-radius: 5px;
+  align-items: center;
+}
 
-  /* align-items: center; */
+.wrapper4__inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
 }
 
 .card__values {
@@ -220,7 +230,7 @@ h6 {
 .title-link--active {
   color: rgb(255, 123, 46);
 }
-active {
+.active {
   color: rgb(255, 123, 46);
 }
 
@@ -285,11 +295,11 @@ active {
   position: absolute;
 }
 
-.text > span {
+.mark-vanilla {
   background-color: rgb(255, 123, 46);
 }
 
-.text-fuse > span {
+.mark-fuse {
   background-color: rgb(159, 73, 180);
   opacity: 0.6;
 }

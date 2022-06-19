@@ -9,8 +9,6 @@ const refs = {
 
 const origText = refs.text.innerText;
 const targetToSearch = origText.split(' ');
-// console.dir(targetToSearch);
-// console.log(origText.includes('o'));
 refs.counterStandart.textContent = 0;
 refs.counterFuse.textContent = 0;
 
@@ -40,7 +38,7 @@ function onStdSearchInput(e) {
   origText.split(' ').map((searchedEl, i, markedArr) => {
     if (searchedEl.toLowerCase().includes(searchString)) {
       counterStandart += 1;
-      markedArr.splice(i, 1, `<span>${searchedEl}</span>`);
+      markedArr.splice(i, 1, `<span class="mark-vanilla">${searchedEl}</span>`);
       refs.text.innerHTML = markedArr.join(' ');
     }
 
@@ -51,18 +49,20 @@ function onStdSearchInput(e) {
 function onFuseSearchInput(e) {
   const searchString = e.target.value.toLowerCase();
   const searchArr = refs.textFuse.innerText.split(' ');
-  // console.log(searchString);
-  // console.log(refs.textFuse.innerText.split(' '));
   refs.counterFuse.textContent = 0;
   const options = {
     includeScore: true,
-    threshold: 0.3,
+    threshold: 0.6,
   };
   const fuse = new Fuse(searchArr, options);
   const result = fuse.search(searchString);
   refs.counterFuse.textContent = result.length;
+  createMarkupFuse(searchArr, result);
+}
+
+function createMarkupFuse(searchArr, result) {
   result.forEach(({ item, refIndex }) => {
-    searchArr.splice(refIndex, 1, `<span>${item}</span>`);
+    searchArr.splice(refIndex, 1, `<span class="mark-fuse">${item}</span>`);
     refs.textFuse.innerHTML = searchArr.join(' ');
   });
 }
